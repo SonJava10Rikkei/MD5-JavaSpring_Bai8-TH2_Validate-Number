@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Input PhoneNumber</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+</head>
+<head th:replace="/layout :: head">
+<body>
+<h1>Ok</h1>
+<form th:action="@{/number}" th:object="${phoneNumber}"
+      method="POST">
+    <table>
+        <tr>
+            <td>PhoneNumber</td>
+            <td><input type="text" th:field="*{number}"/></td>
+            <td><span style="color: red" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></span></td>
+        </tr>
+    </table>
+    <button type="submit">submit</button>
+</form>
+<footer th:replace="/layout :: footer">
+
+</footer>
+</body>
+</html>
